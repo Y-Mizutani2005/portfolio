@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
     const title = post.title as string;
     const description = (post.description as string) || siteConfig.description;
-    const ogImage = siteConfig.ogImage;
+    const ogImage = `${siteConfig.url}/api/og?title=${encodeURIComponent(title)}&date=${post.date}&type=Blog`;
 
     return {
         title: title,
