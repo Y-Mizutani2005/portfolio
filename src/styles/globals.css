@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors - Manually matched to the user's requested palette for variables */
+    --background: 222.2 84% 4.9%;
+    /* Deep Dark Base */
+    --foreground: 218 11% 65%;
+    /* #D1D5DB equivalent (Light Gray) */
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 239 84% 67%;
+    /* #6366F1 (Indigo) */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 239 84% 67%;
+    /* Same as primary */
+
+    --radius: 0.5rem;
+
+    --font-inter: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-jetbrains-mono: "Fira Code", "JetBrains Mono", monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* User Requested Styles */
+    background: linear-gradient(135deg, #111827 0%, #1F2937 50%, #1E293B 100%);
+    color: #D1D5DB;
+    /* --foreground */
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1F2937;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4B5563;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6366F1;
+  }
+
+  /* Selection Styles */
+  ::selection {
+    background: #6366F1;
+    color: #F3F4F6;
+  }
+
+  /* Focus Styles */
+  :focus-visible {
+    outline: 2px solid #6366F1;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+
+  /* Subtle Pulse Animation for Counters */
+  @keyframes pulse-subtle {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  /* Mouse Glow Utility Class - to be used with JS for position updates, 
+     or simple CSS hover effects. Here is a base class. */
+  .glow-effect {
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.06), transparent 40%);
+  }
+}
+
+/* Custom Highlights */
+.highlight-red {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.highlight-blue {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+/* Prism Syntax Highlighting Fixes */
+pre[class*="language-"] {
+  background: #282c34;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+code[class*="language-"] {
+  display: block;
+  /* CRITICAL FIX: Ensures code container respects block children (lines) */
+  width: 100%;
+  color: #abb2bf;
+  text-shadow: none;
+  font-family: var(--font-jetbrains-mono), monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  /* Keep whitespace */
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Line numbers and row layout */
+.code-line {
+  display: block;
+  width: 100%;
+}
+
+/* Line number column */
+.code-line>span.line-number {
+  display: inline-block;
+  width: 2rem;
+  margin-right: 1rem;
+  color: #5c6370;
+  text-align: right;
+  user-select: none;
+  opacity: 0.5;
+}
+
+/* Token Colors (One Dark) */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #d19a66;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #56b6c2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c678dd;
+}
+
+.token.function,
+.token.class-name {
+  color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #c678dd;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

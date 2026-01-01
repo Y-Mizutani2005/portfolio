@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <!-- Background: Dark #111827 with rounded corners -->
+  <rect width="32" height="32" rx="8" fill="#111827" />
+  
+  <!-- Icon: Lucide Terminal style, Color #6366F1, Centered -->
+  <!-- Arrow shape (>) -->
+  <polyline points="8 9 16 16 8 23" stroke="#6366F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Underscore shape (_) -->
+  <line x1="18" y1="23" x2="26" y2="23" stroke="#6366F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
