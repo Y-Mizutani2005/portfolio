@@ -9,9 +9,10 @@
     @apply border-l-4 border-primary pl-4;
   }
 
-  /* Blog & Works: Highlight H3 (and NOT H2) */
+  /* Blog & Works: Highlight H3 with subtle underline */
   .custom-article-prose h3 {
-    @apply border-l-4 border-primary pl-4;
+    @apply pb-2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
