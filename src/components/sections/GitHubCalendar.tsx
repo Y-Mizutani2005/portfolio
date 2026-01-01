@@ -15,34 +15,25 @@ export function GitHubCalendar({ className }: { className?: string }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Using a public proxy for GitHub contributions
-                // You can change 'Y-Mizutani2005' to any username
-                const username = "Y-Mizutani2005";
-                const year = new Date().getFullYear();
-                const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`);
+                // Fetch from our internal API which uses the official GitHub GraphQL API
+                // This allows fetching private contributions if GITHUB_TOKEN is set
+                const response = await fetch('/api/github/contributions');
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch contributions');
+                }
+
                 const json = await response.json();
 
                 if (json.contributions && json.contributions.length > 0) {
                     setData(json.contributions);
                 } else {
-                    // Fallback for empty data (e.g. new year with no commits yet)
-                    // Generate empty data for the current year
-                    const startDate = new Date(`${year}-01-01`);
-                    const endDate = new Date(`${year}-12-31`);
-                    const emptyData: Activity[] = [];
-
-                    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-                        emptyData.push({
-                            date: d.toISOString().split('T')[0],
-                            count: 0,
-                            level: 0
-                        });
-                    }
-                    setData(emptyData);
+                    // Fallback for empty data
+                    throw new Error('No data received');
                 }
             } catch (error) {
                 console.error("Failed to fetch GitHub contributions:", error);
-                // Fallback on error too
+                // Fallback: Generate empty data for the current year
                 const year = new Date().getFullYear();
                 const startDate = new Date(`${year}-01-01`);
                 const endDate = new Date(`${year}-12-31`);
