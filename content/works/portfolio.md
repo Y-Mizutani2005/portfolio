@@ -4,6 +4,8 @@ date: "2025-12-31"
 description: "Next.js 15 (App Router) と Tailwind CSS を用いた、個人の技術ブログ兼ポートフォリオサイトです。"
 thumbnail: "/images/works/portfolio-thumbnail.png"
 technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
+links:
+  demo: "https://yukidev-xi.vercel.app"
 featured: true
 recommended: true
 ---
