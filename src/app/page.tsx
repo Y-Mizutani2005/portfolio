@@ -2,11 +2,11 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { getAllPosts } from "@/lib/markdown";
 
 export default function Home() {
-    const allPosts = getAllPosts("blog", ["title", "date", "slug", "description", "excerpt", "recommended"]);
-    const allWorks = getAllPosts("works", ["title", "date", "slug", "description", "thumbnail", "recommended"]);
+    const allPosts = getAllPosts("blog", ["title", "date", "slug", "description", "excerpt", "recommended", "tags"]);
+    const allWorks = getAllPosts("works", ["title", "date", "slug", "description", "thumbnail", "recommended", "technologies"]);
 
-    type Post = { title: string; slug: string; date: string; description?: string; excerpt?: string; recommended?: boolean };
-    type Work = { title: string; slug: string; date: string; description?: string; thumbnail?: string; recommended?: boolean };
+    type Post = { title: string; slug: string; date: string; description?: string; excerpt?: string; recommended?: boolean; tags?: string[] };
+    type Work = { title: string; slug: string; date: string; description?: string; thumbnail?: string; recommended?: boolean; technologies?: string[] };
 
     // Work Selection
     // Recommended Focus (2x2): User selected via frontmatter "recommended: true"

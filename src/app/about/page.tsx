@@ -86,8 +86,8 @@ export default function AboutPage() {
                             <span>Python, JavaScript, TypeScript, Ruby, PHP, SQL</span>
                         </div>
                         <div className="grid grid-cols-[1fr_2fr] gap-4 border-b border-border py-2">
-                            <span className="font-bold">Frontend</span>
-                            <span>React, Vite, Tailwind CSS, Streamlit, WordPress</span>
+                            <span className="font-bold">WebApp</span>
+                            <span>React, Vite, Tailwind CSS, Streamlit, Next.js, FastAPI, WordPress</span>
                         </div>
                         <div className="grid grid-cols-[1fr_2fr] gap-4 border-b border-border py-2">
                             <span className="font-bold">Data & AI</span>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                         </div>
                         <div className="grid grid-cols-[1fr_2fr] gap-4 border-b border-border py-2">
                             <span className="font-bold">Tools & Services</span>
-                            <span>Azure, GitHub, Vercel, Google Apps Script, WordPress API</span>
+                            <span>Azure, GitHub, Docker, Vercel, Google Apps Script, WordPress API</span>
                         </div>
                     </div>
                 </section>

@@ -13,6 +13,7 @@ export interface HeroSectionProps {
         date: string;
         description?: string;
         excerpt?: string;
+        tags?: string[];
     } | null;
     recommendedPost: {
         title: string;
@@ -27,6 +28,7 @@ export interface HeroSectionProps {
         date: string;
         description?: string;
         thumbnail?: string;
+        technologies?: string[];
     } | null;
     recommendedWork: {
         title: string;
@@ -182,6 +184,15 @@ export function HeroSection({ latestPost, recommendedPost, latestWork, recommend
                                             {latestWork.description}
                                         </p>
                                     )}
+                                    {latestWork.technologies && latestWork.technologies.length > 0 && (
+                                        <div className="flex flex-wrap gap-1.5 pt-1">
+                                            {latestWork.technologies.slice(0, 3).map((tech) => (
+                                                <span key={tech} className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-gray-400 border border-white/5">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <div className="flex items-center justify-between mt-4">
@@ -219,7 +230,7 @@ export function HeroSection({ latestPost, recommendedPost, latestWork, recommend
                             <Icons.stack className="h-5 w-5 text-primary" /> Stack
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                            {["React", "TypeScript", "Tailwind", "Python", "FastAPI", "PHP", "Azure", "Semantic Kernel", "Docker"].map((tech) => (
+                            {["Next.js", "React", "TypeScript", "FastAPI", "Python", "Tailwind CSS", "Azure", "Semantic Kernel", "GitHub"].map((tech) => (
                                 <div key={tech} className="bg-white/5 rounded-full px-3 py-1 text-center text-xs font-medium text-muted-foreground hover:bg-white/10 hover:text-white transition-colors cursor-default">
                                     {tech}
                                 </div>
@@ -251,6 +262,15 @@ export function HeroSection({ latestPost, recommendedPost, latestWork, recommend
                                 <p className="text-sm text-muted-foreground line-clamp-2">
                                     {latestPost.description || latestPost.excerpt}
                                 </p>
+                            )}
+                            {latestPost && latestPost.tags && latestPost.tags.length > 0 && (
+                                <div className="flex flex-wrap gap-2 pt-1">
+                                    {latestPost.tags.slice(0, 3).map((tag) => (
+                                        <span key={tag} className="text-xs text-primary/80 bg-primary/5 px-2 py-0.5 rounded border border-primary/10">
+                                            #{tag}
+                                        </span>
+                                    ))}
+                                </div>
                             )}
                         </div>
                         <div className="ml-4 h-10 w-10 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
