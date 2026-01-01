@@ -8,7 +8,7 @@ const Red = ({ children }: { children: React.ReactNode }) => (
 export default function AboutPage() {
     return (
         <div className="container py-10 md:py-16 mx-auto px-4 max-w-4xl">
-            <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800">
+            <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800 custom-about-prose">
                 <h1 className="text-4xl font-bold tracking-tight mb-8">About Me</h1>
                 <section>
                     <h2 className="text-3xl font-bold mt-0">Yuki Mizutani</h2>

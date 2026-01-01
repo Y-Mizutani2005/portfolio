@@ -91,7 +91,7 @@ export default async function WorkPage({ params }: Params) {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 {/* Main Content */}
                 <div className="lg:col-span-3">
-                    <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800">
+                    <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800 custom-article-prose">
                         <div className="mb-8 border-b border-border pb-8">
                             <h1 className="text-3xl font-extrabold tracking-tight lg:text-4xl mb-4 text-foreground">
                                 {post.title as string}

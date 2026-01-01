@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+
+  /* About Page: Highlight H2 */
+  .custom-about-prose h2 {
+    @apply border-l-4 border-primary pl-4;
+  }
+
+  /* Blog & Works: Highlight H3 (and NOT H2) */
+  .custom-article-prose h3 {
+    @apply border-l-4 border-primary pl-4;
+  }
+}
+
 @layer base {
   :root {
     /* Base Colors - Manually matched to the user's requested palette for variables */

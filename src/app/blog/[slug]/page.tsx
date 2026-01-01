@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: Params) {
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 items-start justify-center">
                     <main className="min-w-0 w-full">
-                        <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800">
+                        <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800 custom-article-prose">
                             <div className="mb-8 border-b border-border pb-8">
                                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                                     <time dateTime={post.date as string}>
