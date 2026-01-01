@@ -50,11 +50,10 @@ git push -u origin main
     *   **Framework Preset**: `Next.js` (自動検出されるはずです)
     *   **Root Directory**: `./` (変更不要)
     *   **Environment Variables**:
-        *   もし本番環境のURLが決まっている場合（カスタムドメインなど）、`NEXT_PUBLIC_BASE_URL` を設定します。
-        *   例:
-            *   Key: `NEXT_PUBLIC_BASE_URL`
-            *   Value: `https://your-project-name.vercel.app` (またはカスタムドメイン)
-        *   ※ 初期デプロイ時は空でも動作しますが、`src/lib/site-config.ts` で利用されているため、正しいOGPなどのために後で設定することを推奨します。
+        *   **注意**: まだ本番URL（`*.vercel.app`）が決まっていない場合、**この設定はスキップして空欄のままで構いません**。
+        *   デプロイ完了後に発行されたURLを確認してから、後で設定を追加します（手順は後述）。
+        *   ※ 設定しない場合、デフォルトの `http://localhost:3000` が使用されますが、サイトの表示自体は可能です。
+
 
 4.  「Deploy」ボタンをクリックします。
 
@@ -69,7 +68,22 @@ git push -u origin main
 *   詳細ページに遷移できるか
 *   スタイル（CSS）が崩れていないか
 
-## 6. 今後の運用
+## 6. 本番URLの設定（推奨）
+
+初期デプロイで `NEXT_PUBLIC_BASE_URL` を設定しなかった場合、以下の手順で設定を行います。これを行うことで、OGP画像やCanoncial URLが正しく機能するようになります。
+
+1.  Vercelのプロジェクト画面（Dashboard）を開きます。
+2.  デプロイされたプロジェクトの「Visit」ボタンの横にあるURL（例: `https://blog-and-portfolio-tau.vercel.app`）をコピーします。
+3.  「Settings」タブ -> 「Environment Variables」メニューに進みます。
+4.  以下のように新しい変数を追加します。
+    *   **Key**: `NEXT_PUBLIC_BASE_URL`
+    *   **Value**: コピーしたURL（例: `https://blog-and-portfolio-tau.vercel.app`）
+        *   ※ 末尾の `/` は不要です。
+5.  「Save」をクリックします。
+6.  設定を反映させるため、再デプロイ（Redeploy）を行うか、次のコード変更のプッシュを待ちます。
+    *   **手動再デプロイの手順**: 「Deployments」タブ -> 最新のデプロイの右側の三点リーダー（…） -> 「Redeploy」を選択。
+
+## 7. 今後の運用
 
 コードを修正して更新したい場合は、以下の手順で行います。
 

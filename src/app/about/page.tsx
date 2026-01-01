@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Github, Mail } from "lucide-react";
 
 const Red = ({ children }: { children: React.ReactNode }) => (
     <span className="highlight-red">{children}</span>
@@ -10,9 +11,9 @@ export default function AboutPage() {
             <article className="prose prose-neutral dark:prose-invert max-w-none rounded-xl p-6 md:p-10 bg-slate-800">
                 <h1 className="text-4xl font-bold tracking-tight mb-8">About Me</h1>
                 <section>
-                    <h2 className="text-3xl font-bold mt-0">水谷 勇貴 (Yuki Mizutani)</h2>
+                    <h2 className="text-3xl font-bold mt-0">Yuki Mizutani</h2>
                     <p className="text-lg text-muted-foreground font-medium">
-                        南山大学 経済学部 3年 / Data Scientist / System Engineer
+                        Nanzan University, Economics Department, 3rd year / Data Scientist / System Engineer
                     </p>
                     <p className="leading-relaxed">
                         「ビジネスや社会の課題を、Web・LLM・AIなどのITテクノロジーを用いて、解決の道筋を設計・実装し、実際に解決できるような人間になる」ことを目指して活動しています。
@@ -33,7 +34,7 @@ export default function AboutPage() {
 
                     <h3 className="font-bold mt-6">Student Organization</h3>
                     <p>
-                        南山大学にてWebコンテンツで学生支援をする学生団体を立ち上げ、現在副代表を務めています。
+                        大学でWebコンテンツで学生支援をする学生団体を立ち上げ、現在副代表を務めています。
 
                     </p>
                 </section>
@@ -120,6 +121,31 @@ export default function AboutPage() {
                         AIを使いこなし、ユーザーの課題解決に繋がる開発を行える人間になることを目指しています。
                     </p>
 
+                </section>
+
+                <section className="mt-12">
+                    <h2>📬 Contact</h2>
+                    <p>
+                        ご連絡などありましたら、お気軽にご連絡ください。
+                    </p>
+                    <div className="flex flex-col gap-3 mt-4">
+                        <a
+                            href="mailto:y.mizutani2005@gmail.com"
+                            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors w-fit"
+                        >
+                            <Mail className="h-5 w-5" />
+                            <span>y.mizutani2005@gmail.com</span>
+                        </a>
+                        <a
+                            href="https://github.com/Y-Mizutani2005"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors w-fit"
+                        >
+                            <Github className="h-5 w-5" />
+                            <span>@Y-Mizutani2005</span>
+                        </a>
+                    </div>
                 </section>
             </article>
         </div>
