@@ -19,6 +19,23 @@ export async function GET(request: Request) {
         // ?type=<type> (e.g. "Blog", "Work", or empty for default)
         const type = searchParams.get('type');
 
+        // Font loading
+        const fontData = await fetch(
+            new URL('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap', request.url)
+        ).then((res) => res.text());
+
+        // Extract the actual font URL from the CSS
+        const resource = fontData.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
+        let fontUrl = resource && resource[1];
+
+        // Fallback or direct fetch if CSS extraction fails (simplified approach for edge)
+        // Note: For reliability in Edge, it's often better to fetch the font file directly or use a known URL if possible.
+        // Using a direct Google Fonts URL for Noto Sans JP Bold (subset)
+        const fontBuffer = await fetch(
+            'https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Bold.otf'
+        ).then((res) => res.arrayBuffer());
+
+
         return new ImageResponse(
             (
                 <div
@@ -33,7 +50,7 @@ export async function GET(request: Request) {
                         backgroundImage: 'radial-gradient(circle at 25px 25px, #1e293b 2%, transparent 0%), radial-gradient(circle at 75px 75px, #1e293b 2%, transparent 0%)',
                         backgroundSize: '100px 100px',
                         color: 'white',
-                        fontFamily: '"Inter", sans-serif',
+                        fontFamily: '"Noto Sans JP", sans-serif',
                         position: 'relative',
                     }}
                 >
@@ -137,13 +154,13 @@ export async function GET(request: Request) {
             {
                 width: 1200,
                 height: 630,
-                // fonts: [
-                //   {
-                //     name: 'Inter',
-                //     data: fontData,
-                //     style: 'normal',
-                //   },
-                // ],
+                fonts: [
+                    {
+                        name: 'Noto Sans JP',
+                        data: fontBuffer,
+                        style: 'normal',
+                    },
+                ],
             },
         );
     } catch (e: any) {
