@@ -19,22 +19,24 @@ export async function GET(request: Request) {
         // ?type=<type> (e.g. "Blog", "Work", or empty for default)
         const type = searchParams.get('type');
 
-        // Font loading
-        const fontData = await fetch(
-            new URL('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap', request.url)
-        ).then((res) => res.text());
+        // Font loading with dynamic subsetting
+        // We construct a set of all unique characters needed to render this specific image
+        // to request a tiny subset font from Google Fonts.
+        const textToRender = title + (date || '') + (type || '') + siteConfig.name + '0123456789-/.';
+        // Remove duplicates to keep URL short
+        const uniqueChars = Array.from(new Set(textToRender.split(''))).join('');
+        const fontUrlEndpoint = `https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&text=${encodeURIComponent(uniqueChars)}`;
+
+        const fontData = await fetch(fontUrlEndpoint).then((res) => res.text());
 
         // Extract the actual font URL from the CSS
-        const resource = fontData.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
-        let fontUrl = resource && resource[1];
+        const resource = fontData.match(/src: url\((.+)\) format\('(opentype|truetype|woff|woff2)'\)/);
 
-        // Fallback or direct fetch if CSS extraction fails (simplified approach for edge)
-        // Note: For reliability in Edge, it's often better to fetch the font file directly or use a known URL if possible.
-        // Using a direct Google Fonts URL for Noto Sans JP Bold (subset)
-        const fontBuffer = await fetch(
-            'https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/Japanese/NotoSansCJKjp-Bold.otf'
-        ).then((res) => res.arrayBuffer());
+        if (!resource) {
+            throw new Error('Failed to load font css');
+        }
 
+        const fontBuffer = await fetch(resource[1]).then((res) => res.arrayBuffer());
 
         return new ImageResponse(
             (
