@@ -9,6 +9,11 @@
     @apply border-l-4 border-primary pl-4;
   }
 
+  /* Blog & Works: Highlight H2 with left accent bar */
+  .custom-article-prose h2 {
+    @apply border-l-4 border-primary pl-4;
+  }
+
   /* Blog & Works: Highlight H3 with subtle underline */
   .custom-article-prose h3 {
     @apply pb-2;
