@@ -5,7 +5,7 @@ category: "Tech"
 tags: ["AI", "Antigravity", "Google Colab", "非エンジニア向け"]
 excerpt: ""
 thumbnail: ""
-draft: true
+hidden: true
 ---
 
 ## 発端
