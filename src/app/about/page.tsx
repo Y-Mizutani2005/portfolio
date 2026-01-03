@@ -126,7 +126,7 @@ export default function AboutPage() {
                 <section className="mt-12">
                     <h2>📬 Contact</h2>
                     <p>
-                        ご質問などありましたら、お気軽にご連絡ください。
+                        ご質問やご相談などありましたら、お気軽にご連絡ください。
                     </p>
                     <div className="flex flex-col gap-3 mt-4">
                         <a
