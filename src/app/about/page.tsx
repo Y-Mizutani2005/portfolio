@@ -45,7 +45,7 @@ export default function AboutPage() {
 
                     <h3 className="font-bold">Data Science & AI</h3>
                     <p>
-                        中部電力関連企業にて、週1回8時間勤務の長期インターンとして半年以上実務に従事しています。
+                        データサイエンス系の企業にて、週1回8時間勤務の長期インターン生として半年以上実務に携わっています。
                     </p>
                     <ul className="list-disc pl-5 space-y-1">
                         <li><strong>領域:</strong> Azureリソースを用いたAIエージェント開発に要件定義・設計・開発まで一貫して携わる。</li>
