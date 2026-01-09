@@ -6,6 +6,7 @@ tags: ["AI", "Google Workspace", "Gemini", "GAS", "効率化"]
 excerpt: "Google Drive、Calendar、GeminiとGoogle Apps Scriptを組み合わせて、学生団体の運営を自動化・効率化する方法を解説します。"
 thumbnail: ""
 draft: true
+hidden: true
 ---
 
 サークル、ゼミ、プロジェクトチーム...大学生活ではさまざまな団体活動があります。
