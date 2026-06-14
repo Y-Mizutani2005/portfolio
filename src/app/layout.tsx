@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google"; // Corrected font import
-// If JetBrains Mono is not available via next/font easily or requires different config, we'll fix it. 
-// Standard next/font/google has 'JetBrains_Mono'.
 import "./../styles/globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrainsMono = JetBrains_Mono({
-    subsets: ["latin"],
-    variable: "--font-jetbrains-mono",
-});
-
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -59,7 +49,7 @@ export default function RootLayout({
     return (
         <html lang="ja" suppressHydrationWarning>
             <body
-                className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-background font-sans antialiased`}
+                className="min-h-screen bg-background font-sans antialiased"
             >
                 <ThemeProvider
                     attribute="class"

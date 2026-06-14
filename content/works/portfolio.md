@@ -1,65 +1,68 @@
 ---
 title: "Portfolio & Blog Site"
-date: "2025-12-31"
-description: "Next.js 15 (App Router) と Tailwind CSS を用いた、個人の技術ブログ兼ポートフォリオサイトです。"
+date: "2026-06-08"
+description: "Next.js 15とMarkdown content workflowで構築した、採用担当者が主要実績へ辿りやすい個人ポートフォリオ兼ブログ。"
 thumbnail: "/images/works/portfolio-thumbnail.png"
-technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
+technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Markdown", "Vercel"]
 links:
+  github: "https://github.com/Y-Mizutani2005/portfolio"
   demo: "https://yukidev-xi.vercel.app"
 featured: true
 recommended: true
 ---
 
-## 1. タイトル：ポートフォリオ&ブログサイト
+## Problem
 
-- **Next.js 15 (App Router) と Tailwind CSS** を用いて、モダンなポートフォリオ兼ブログサイトを作りました。
-- 普段使いのMarkdownファイルを **GitHubで管理・プッシュするだけで自動デプロイされる**、楽ちんな運用フローです。MarkdownパーサーをTypeScriptで実装しました。
-- ダークモードを基調とした **Obsidian風のデザイン** に、コードハイライトや数式表示なども可能。
+GitHub repositoryだけでは、採用担当者が短時間で「何ができる人か」「どの実績を見るべきか」を判断しづらい課題がありました。
 
-## 2. なぜ作ろうと思ったか
-大学二年生が終わり、IT志望としては、そろそろポートフォリオを作りたい思いがありました。そうなると、ついでに自分なりのブログとして機能するようなものにしたくなってきます。qiitaやzennなんかは、なんとなく自分みたいなのが投稿してお目汚しするのは…という気持ちになってハードルが高いのです。
+特に、AI / LLM、Web service、workflow automation、学生団体運営の実績が複数に分散しているため、それぞれの背景、役割、成果、根拠リンクをまとめて読める入口が必要でした。
 
-普段使いすることを考えると、普段使っているmarkdownファイルをそのままブログのコンテンツとして投稿したいし、自動デプロイもしたい。
+## Role
 
-また、当時流行していたGoogleのAI駆動開発ツール **「Antigravity」** を試してみたい。
+個人プロジェクトとして、サイト全体の設計、実装、コンテンツモデル、Markdown workflow、デプロイ設定までを担当しました。
 
-なるべく無料でやりたい。学生に固定費は重い…。
+採用向けには、単なるブログではなく、主要実績をcase studyとして整理し、GitHub profile、公開repository、PDF evidence、実サービスURLへ接続する入口として使うことを目的にしています。
 
-いろいろな欲張りをかなえるようなポートフォリオサイトを作ることにしました。
+## What I Built
 
-## 3. 技術スタックと選定理由
+Next.js App Routerを使い、Markdownファイルをcontent sourceにしたポートフォリオ兼ブログを構築しました。
 
-### 使用技術一覧:
-  - フロントエンド: Next.js 15 (App Router), TypeScript, Tailwind CSS
-  - コンテンツ管理: Markdown, GitHub
-  - こだわりUI: Shiki, KaTeX
-  - その他: Vercel Analytics, next-themes
+主な実装は以下です。
 
-### なぜその技術を選んだのか:
-  - **Next.js 15 (App Router):** モダンなWeb技術を触っておきたかったから…。といいつつ、本当の理由はvercelで無料デプロイすることを考えたとき、一番バランスがよさげだったためです。これまでほぼ触ったことがなかったので、基本的な部分を一通り調べた上で開発に取り掛かりました。
-  - **TypeScript:** 型がないなんて考えられません。
-  - **Tailwind CSS:** デザインはTailwindをいつも使っています。AI駆動開発とも相性よし。
-  - **Markdown + GitHub:** Markdownユーザーなので、そのスタンスを崩したくない。無料で完結するし、コードと一緒にGitHubで管理できるのが一番シンプルで好きです。
+- `content/blog` と `content/works` を分けたMarkdown content model
+- gray-matterによるfrontmatter metadata管理
+- remark / rehypeによるMarkdown rendering
+- custom directiveによる強調表現
+- work一覧・詳細ページ
+- blog一覧・詳細ページ
+- OGP用API route
+- sitemap / robots
+- GitHub contribution表示用API route
+- Vercelへのdeploy workflow
 
-### こだわったポイント:
-  - **Markdownパーサー:** MarkdownをHTMLにパースする！サムネイル画像、日時やタグ付けなどメタデータ付与もできます。Obsidianなどのローカルエディタで書いた思考のメモを、そのままWeb上にデプロイできるワークフローを目指しました。とにかく投稿までのハードルを低くするのがテーマ。**日常的な使い心地の良さ** がいいと、気分が良くて使い続けたくなると思うので、:red[私のスタンスとして開発では常にUX第一でこだわりたいです！]
-  - **表現の幅:** 文字色、文字ハイライト、引用・コードブロック、数式を表示できるようにしました。画像もいけちゃう。Markdownをそのまま自然に表示できるようにこだわりました。
-  - **UI:** やはり見ていて美しいものをつくりたい。普段使いしている **Obsidianのダークテーマっぽい雰囲気** に。いろんなサイトの気に入っている部分を参考にしました。  
-  - **自動デプロイ:** GitHubのmainブランチにpushするだけで、Vercelへデプロイされ、自動的にSSG/ISRされる仕組みにしました。
-  - **SEO対策:** Metadata APIでOGP対応や、sitemap.xmlの自動生成などを行いました。
+## Result
 
-## 4. AIをどのように開発に活かしたか
-まず、:red[ビジネスロジック、アーキテクチャ設計を自分で徹底的に考え抜く]。AIの有無にかかわらず、開発は最初の設計が本当に大切だと私は考えていて、いつも丁寧に作り込みます。
-設計段階の壁打ちで、まずAIが役に立つ。リサーチや構成案を出させて、それをベースに直感的に課題になりそうな部分を潰していく。あんまりにもダメそうなら、ゼロベースで作り直す。この方法でAI駆動開発がそこそこうまくいくと思っています。
+現在の本番サイトは、GitHub profileや応募書類から遷移する採用向けの入口として運用しています。
 
-実開発は **Antigravity** を主に使いました。個人的にはClaudeCodeより使いやすい気がしています。AppRouterやMarkdownパーサーなどロジック部分は最初に設計を丁寧にしていたためすんなり上手くいきました。Antigravityで特に驚いたのは、DOM参照しながらUI開発してくれること！細かい部分までこだわりつつハイスピードに開発できました。
+このT-055対応では、worksを採用担当者向けのcase study型に寄せ、松尾研、TCA、Gakuson Portal、Google Docs to WordPress、GakusonTheme、Portfolioを並べて読める状態にしました。
 
-開発中には細かくコミットを切って進めていたため、AIが数回起こした破壊的な変更に問題なく対応できました。あたりまえの事ですが、:red[こまめなコミットとテストが有効]でした。
-    
-## 5. 振り返り
-まず、自分が満足できるようなものを作れて非常に良かったです。第二の目標としていたAntigravityを触ってみようというテーマについても、長所短所使いこなし方は見えたので良い経験になりました。:red[私は自分や周囲の人のハッピーのためにモノづくりをしている]ので、AIを活用してハイスピードにモノづくりができるようになったのは嬉しいし、今後も自分自身のスキルアップと並行して開発を続けていきたいです。
+## Tech Stack
 
-### 今後の展望:
-  - **全文検索、タグ検索:** 記事が増えてきたら実装したい。
+- Next.js 15
+- TypeScript
+- React
+- Tailwind CSS
+- Markdown
+- unified / remark / rehype
+- Vercel
 
-記事を書くことで、サイトと私自身を成長させていきたいです。2026年の私よろしくね。
+## Evidence
+
+- Production site: [yukidev-xi.vercel.app](https://yukidev-xi.vercel.app)
+- GitHub repository: [Y-Mizutani2005/portfolio](https://github.com/Y-Mizutani2005/portfolio)
+- このページ自体が、Markdown content workflowとworks導線の実例
+
+## Links
+
+- [Production site](https://yukidev-xi.vercel.app)
+- [GitHub repository](https://github.com/Y-Mizutani2005/portfolio)

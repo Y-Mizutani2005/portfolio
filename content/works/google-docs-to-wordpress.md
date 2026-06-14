@@ -1,54 +1,66 @@
 ---
 title: "Google Docs to WordPress"
-date: "2025-12-31"
-description: "Google Docsで執筆した記事を、ワンクリックでWordPressの下書きとして入稿・画像アップロードまで完了させる、ライターのための業務効率化ツール。"
+date: "2026-06-10"
+description: "Google Docsで執筆した記事を、WordPressの下書き投稿・画像アップロード・メタデータ設定まで一括で処理する業務効率化ツール。"
 thumbnail: "/images/works/google-docs-to-wordpress.png"
-technologies: ["Google Apps Script", "Google Docs API", "WordPress REST API"]
+technologies: ["Google Apps Script", "Google Docs API", "WordPress REST API", "JavaScript"]
 links:
   github: "https://github.com/Y-Mizutani2005/gdocs_to_wordpress"
-featured: false
+featured: true
 recommended: false
 ---
 
-## タイトルと概要
-- **プロジェクト名:** 「Google Docs to WordPress」自動入稿システム
-- **概要:** Google Docsで執筆した記事を、ワンクリックでWordPressの下書きとして入稿・画像アップロードまで完了させる、ライターのための業務効率化ツールです。
-- **ターゲット:** 執筆フローの摩擦を減らしたいブロガーやライター。
+## Problem
 
-## なぜ作ろうと思ったか
-私が運営している学生団体ではWordPressサイトを運用しているのですが、PC操作に不慣れなメンバーが多く、記事の入稿作業に苦戦していました。非エンジニアのために導入したWordPressでしたが、それでも操作のハードルが高かった。
+学生団体でWordPressサイトを運営する中で、PC操作に不慣れなメンバーが記事入稿に時間を取られていました。
 
-そこで、:red[「使い慣れた Google Docs で執筆し、ボタン一つで WordPress に下書き入稿できないか？」]と考えました。
-Google Docs ならリンクで共有も簡単だし、共同編集も簡単。この利便性を活かしつつ、面倒な入稿作業をほぼゼロにすることを目的として開発しました。
+WordPressは非エンジニアでも使えるCMSですが、実際の運用では、見出し、画像、アイキャッチ、カテゴリ、タグ、スラッグ、公開日時などの設定が分散します。記事を書く人にとっては、本文作成よりも入稿作業の摩擦が大きくなっていました。
 
-## 技術スタックと選定理由
-### 使用技術
-- **言語:** Google Apps Script (JavaScript)
-- **UI:** Google Docs / Sidebar UI (HTML/CSS)
-- **API:** WordPress REST API (v2)
-- **認証:** Application Passwords
+## Role
 
-### 選定理由とこだわり
-今回もっとも大切にすべきテーマは:red[「PCに詳しくない非エンジニアでも簡単に使えること」]なので、とっかかりのハードルの低さを一番の軸にしました。 **環境構築不要で簡単に使える** という理由から、Google Apps Scriptを選択しました。GASを仕込んだテンプレドキュメントを事前に用意しておいて、そこからコピーを作成するだけで簡単に使えるような絵図を描いてみました。
-また、GASでGoogle Docs の内部データ（Body, Paragraph, Table）に直接アクセスできるため、HTML変換の精度を高めやすいというメリットもありました。
+学生団体の運営・開発担当として、既存の入稿フローを確認し、非エンジニアのメンバーが使いやすい導線を設計しました。
 
-### UXと実装の作り込み
-:red[「とにかく直感的な操作で入稿できるようにすること」] を最優先しました。見出し、画像、リストなどの主要な要素はワンクリックで入稿できるようにしました。また、WordPressAPI経由でサムネイル画像、投稿日時、SlugURL、タグ、カテゴリー、などのメタデータも含めてGoogleDocsから投稿できます。また、WP標準外ですがインタビュー記事などを想定したアイコンと吹き出しの要素も入稿可能です。
+実装では、Google Apps Script、Google Docsの文書構造、WordPress REST APIの接続、画像アップロード、メタデータ設定、サイドバーUIまでを担当しました。
 
-既存のGDocsとWordpress連携アドオンもいくつかありますが、ここまでGoogleDocs上で完結するアプリは他にないと思ってます。
+## What I Built
 
-技術的には、GoogleDocs内の画像を抽出→WPへアップロード→WP上のURL取得→HTML置換という処理が大変だったポイントです。他の部分は本質的にほとんど一緒で、パーサーとWPAPIの組み合わせでスムーズに実装できました。
+Google Docs上で記事を書き、メニューから実行するだけでWordPressの下書き投稿を作成できるツールを作りました。
 
-## AIをどのように開発に活かしたか
-壁打ちでClaude、実装でAntigravityを利用しました。
+主な機能は以下です。
 
-- **AIに任せた部分:** 今回やりたいことに関係するGASやWordPressAPIの仕様の整理、`DocParser` クラスにおける各種テキスト抽出処理や、条件分岐のボイラープレート生成など。リサーチやコーディングの手数が必要な部分。
-- **人間が担った部分:** 特にUX設計にこだわりました。既存の入稿プロセスを可視化し、メンバーに課題感をヒアリングするところから始め、理想的なフローを実現できたと思っています。アーキテクチャ設計（特にパース処理・通信処理の設計など）も自分で行いました。
+- Google Docsの見出し、太字、リスト、表、画像をHTMLへ変換
+- ドキュメント内画像をWordPressへアップロードし、本文内URLへ差し替え
+- title、slug、date、excerpt、category、tag、featured imageなどのメタデータ指定
+- 目次の自動生成
+- 2列テーブルを会話吹き出しブロックへ変換
+- WordPress REST APIの投稿作成・メディアアップロード
+- Google Docs sidebar UIによるカテゴリ・タグ設定
 
-## 振り返り
+環境構築の負担を増やさないため、Google Apps Scriptで実装し、テンプレート化したGoogle Docsから使える構成にしています。
+
+## Result
+
+記事執筆者は、使い慣れたGoogle Docsで本文を書いたまま、WordPress管理画面での細かい入稿作業を大きく減らせるようになりました。
+
+このプロジェクトは、単なるAPI連携ではなく、非エンジニアの実運用に合わせて、UI、導入手順、エラー時の扱い、WordPress側のHTML構造まで考えて作った業務効率化ツールです。
+
+## Tech Stack
+
+- Google Apps Script
+- JavaScript
+- Google Docs API / DocumentApp
+- WordPress REST API
+- HTML / CSS sidebar UI
+- Application Passwords
+
+## Evidence
+
+- GitHub repository: [Y-Mizutani2005/gdocs_to_wordpress](https://github.com/Y-Mizutani2005/gdocs_to_wordpress)
+- メンバーからの利用フィードバック画像をサイト内に掲載
+- 学生団体のWordPress入稿フロー改善を目的に開発
+
 ![メンバーからのフィードバック](/images/works/google-docs-to-wordpress-feedback.png)
-まず何より、メンバーからのポジティブなフィードバックをもらえて嬉しかったです。作ってよかった！
-結構な手ごたえがあったので、身内だけに留めず、アドオンとして公開もしようと思っています。
 
-JsやTsの経験は数多くあれど、GASをしっかり触ったのは初めてだったので、結構勉強になりました。
-無料でGoogleの関連リソースを使い倒せるのはかな～り便利ですね。今後も手札としてGASが役立ちそうです。
+## Links
+
+- [GitHub repository](https://github.com/Y-Mizutani2005/gdocs_to_wordpress)

@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function WorksPage() {
-    const works = getAllWorks(["title", "description", "slug", "technologies", "thumbnail", "links", "featured"]);
+    const works = getAllWorks(["title", "description", "date", "slug", "technologies", "thumbnail", "links", "featured"]);
 
     return (
         <div className="w-full max-w-6xl mx-0 px-6 md:px-12 py-10 md:py-16">

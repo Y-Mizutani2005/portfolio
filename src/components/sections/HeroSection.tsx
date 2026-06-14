@@ -39,7 +39,7 @@ export interface HeroSectionProps {
     } | null;
 }
 
-export function HeroSection({ latestPost, recommendedPost, latestWork, recommendedWork }: HeroSectionProps) {
+export function HeroSection({ latestPost, latestWork, recommendedWork }: HeroSectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -147,12 +147,12 @@ export function HeroSection({ latestPost, recommendedPost, latestWork, recommend
                         </div>
                         <div>
                             <h1 className="text-2xl font-bold tracking-tight text-white line-clamp-1">Yuki Mizutani</h1>
-                            <p className="text-primary font-medium text-sm">Software Engineer / AI Engineer</p>
+                            <p className="text-primary font-medium text-sm">AI / Web / Automation Engineer</p>
                         </div>
                     </div>
                     <div className="mt-4 space-y-3">
                         <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                            技術をただしくお客さんの満足につなげられるエンジニアを目指しています。実社会の課題解決に繋がるAI Agentの実装に関心があります。
+                            AI / LLM、実利用Webサービス、業務自動化を、課題整理から実装・運用までつなげます。学生団体代表として組織運営も担っています。
                         </p>
                         <div className="flex justify-end">
                             <Link href="/about" className="text-xs font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group/link">
@@ -230,7 +230,7 @@ export function HeroSection({ latestPost, recommendedPost, latestWork, recommend
                             <Icons.stack className="h-5 w-5 text-primary" /> Stack
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                            {["Next.js", "React", "TypeScript", "FastAPI", "Python", "Tailwind CSS", "Azure", "Semantic Kernel", "GitHub"].map((tech) => (
+                            {["Python", "LLM", "Azure", "Next.js", "TypeScript", "WordPress", "Google Apps Script", "Tailwind CSS", "GitHub"].map((tech) => (
                                 <div key={tech} className="bg-white/5 rounded-full px-3 py-1 text-center text-xs font-medium text-muted-foreground hover:bg-white/10 hover:text-white transition-colors cursor-default">
                                     {tech}
                                 </div>
