@@ -58,12 +58,13 @@ recommended: false
 ## Evidence
 
 - U29部門優秀賞: ローカル証明書PDF `松尾研優秀賞_U29.pdf` を根拠に作成
+- 公式掲載: [松尾研講座 成果物一覧ページの「大規模言語モデル2025」欄](https://matsuolab-lecture.notion.site/432e287af97445d5aba989553ebaf808#126cfa7cece780d0807cea09481a604c)
+- 証明書PDF: [matsuo-llm-advanced-u29-award-certificate.pdf](https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition/blob/main/docs/evidence/matsuo-llm-advanced-u29-award-certificate.pdf)
 - 公開用snapshot repo: [Y-Mizutani2005/matsuo-llm-advanced-competition](https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition)
 - 講座の公式情報: [東京大学 松尾・岩澤研究室 大規模言語モデル講座](https://weblab.t.u-tokyo.ac.jp/lecture/course-list/large-language-model/)
-- 証明書PDFは個人情報確認が必要なため、2026-06-15時点ではpublic repoやportfolioには掲載していません。
-- 公式の受賞者掲載ページURLは、2026-06-15時点では公開検索で特定できていません。
 
 ## Links
 
 - GitHub repo: [Y-Mizutani2005/matsuo-llm-advanced-competition](https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition)
 - Official course page: [大規模言語モデル講座](https://weblab.t.u-tokyo.ac.jp/lecture/course-list/large-language-model/)
+- Official result roster: [大規模言語モデル2025](https://matsuolab-lecture.notion.site/432e287af97445d5aba989553ebaf808#126cfa7cece780d0807cea09481a604c)
