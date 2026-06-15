@@ -2,7 +2,7 @@
 title: "monitoring AIsystem in intern"
 date: "2026-06-11"
 description: "月次モニタリング資料作成を支援するデータ解釈自動化AIのPoCを設計・実装した事例。"
-thumbnail: "public/images/works/monitor-agent.png"
+thumbnail: "images/works/monitor-agent.png"
 technologies: ["Python", "Azure", "Microsoft Agent Framework", "LLM", "PowerPoint"]
 links: {}
 featured: true
