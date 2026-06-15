@@ -21,8 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+*_debug.txt
+*debug*.txt
+*error*.txt
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -36,3 +41,8 @@ next-env.d.ts
 lint.json
 lint_output.txt
 tsc.log
+tsconfig.tsbuildinfo
+
+# local drafting / prompt scratchpads
+memo/
+prompts/

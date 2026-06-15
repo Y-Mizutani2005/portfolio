@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostSlugs, markdownToHtml, getHeadings } from "@/lib/markdown";
+import { getPostBySlug, markdownToHtml, getHeadings } from "@/lib/markdown";
 import { format } from "date-fns";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: Params) {
             "category",
             "tags",
         ]);
-    } catch (e) {
+    } catch {
         notFound();
     }
 

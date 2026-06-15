@@ -1,9 +1,7 @@
-import { getPostBySlug, getPostSlugs, markdownToHtml, getHeadings } from "@/lib/markdown";
-import { format } from "date-fns";
+import { getPostBySlug, markdownToHtml, getHeadings } from "@/lib/markdown";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { Icons } from "@/components/ui/Icons";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
@@ -70,7 +68,7 @@ export default async function WorkPage({ params }: Params) {
             "links",
             "thumbnail",
         ]);
-    } catch (e) {
+    } catch {
         notFound();
     }
 
