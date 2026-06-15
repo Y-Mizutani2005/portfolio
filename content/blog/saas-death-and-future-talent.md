@@ -5,7 +5,7 @@ category: "Career"
 tags: ["SaaS", "AI", "Career", "Engineer"]
 excerpt: "SaaSは死ぬのか？——生成AI時代に求められるテック人材を考えてみた。"
 thumbnail: ""
-draft: false
+hidden: true
 ---
 
 ## はじめに

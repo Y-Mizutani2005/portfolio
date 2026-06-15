@@ -19,7 +19,9 @@ recommended: false
 
 ## Role
 
-学生団体「がくそん」では、設立当時は副代表、現在は代表として、サービスの企画、開発、改善、運営、組織づくりを担当しています。
+課題を解決する学内Webサービスを開発し、現在月間アクティブユーザー4500~5000人（GA4）と、かなりたくさんの人に使ってもらえるようになりました。
+
+開発と並行して運営団体を設立し、設立当時は副代表として開発チームの責任者、現在は代表として、チーム設計およびファイナンスに中心的に取り組んでいます。
 
 実装面では、静的サイトとしての構成、主要ページ、共通UI、JSONベースの情報表示、日常利用向けの小機能を整備しました。運営面では、学生ユーザーの使い方を見ながら、発信、改善、広告掲載、学内外との連携まで含めて継続運用しています。
 
@@ -54,7 +56,6 @@ recommended: false
 - Vanilla JavaScript
 - JSON
 - Browser cookies
-- Apache `.htaccess`
 - Static hosting
 
 ## Evidence
@@ -62,7 +63,6 @@ recommended: false
 - Public service: [gakuson.com](https://gakuson.com)
 - GitHub repository: [Gakuson/GakusonPortal](https://github.com/Gakuson/GakusonPortal)
 - GA4計測値: 2026年4月30日時点のスクリーンショットに基づく。月間アクティブユーザー4,932人、総ユーザー数4,983人、月間表示回数約9万回。
-- 学生団体概要資料: ローカル資料 `学生団体.md` を根拠に作成
 
 ![2026年4月30日時点のGA4月間利用者数](/images/works/gakuson-portal-ga4-mau-2026-04-30.png)
 

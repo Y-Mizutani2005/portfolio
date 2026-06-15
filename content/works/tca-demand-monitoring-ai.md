@@ -1,8 +1,8 @@
 ---
-title: "TCA Demand Monitoring AI Case Study"
+title: "monitoring AIsystem in intern"
 date: "2026-06-11"
-description: "大手インフラ企業の長期インターンで、月次モニタリング資料作成を支援するデータ解釈自動化AIのPoCを設計・実装した事例。"
-thumbnail: ""
+description: "月次モニタリング資料作成を支援するデータ解釈自動化AIのPoCを設計・実装した事例。"
+thumbnail: "public/images/works/monitor-agent.png"
 technologies: ["Python", "Azure", "Microsoft Agent Framework", "LLM", "PowerPoint"]
 links: {}
 featured: true
@@ -32,13 +32,9 @@ recommended: false
 - Azure環境での実装・検証
 - 出力内容の妥当性を確認するレビュー観点
 
-単に文章を生成するのではなく、スライドで伝える主張、根拠となる数値、読み手に誤解を与えない表現の整合性を重視しました。
-
 ## Result
 
 データ解釈とリード文生成を自動化するPoCを構築し、月次モニタリング資料作成の一部をAI agentで支援できる形にしました。
-
-公開用PDFでは、取り組みの目的、構成、実装したAIの位置づけ、出力例の考え方を、社内固有情報を避けた形でまとめています。採用向けには、AI / LLMを実務文脈で使うだけでなく、業務要件、資料品質、出力検証まで含めて扱った経験として提示できます。
 
 ## Tech Stack
 

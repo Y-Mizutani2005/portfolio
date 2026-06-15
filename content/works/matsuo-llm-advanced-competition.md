@@ -2,7 +2,7 @@
 title: "Matsuo Lab LLM Advanced Competition"
 date: "2026-06-13"
 description: "東京大学松尾・岩澤研究室のLLM講座応用編アドバンスドコンペで、U29部門優秀賞を受賞したLLM fine-tuningの取り組み。"
-thumbnail: ""
+thumbnail: "/images/works/matsuo-llm-award.png"
 technologies: ["Python", "LLM", "SFT", "QLoRA", "ReAct", "Qwen"]
 links:
   github: "https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition"
@@ -18,7 +18,7 @@ recommended: false
 
 ## Role
 
-個人参加として、実験設計、データ整形、fine-tuning、エラー分析、改善方針の検討までを担当しました。
+個人参加のみのコンペなので、1人で実験設計、データ整形、fine-tuning、エラー分析、改善方針の検討までを行いました。
 
 主に以下を行いました。
 
@@ -26,7 +26,7 @@ recommended: false
 - Qwen2.5-7B-Instructを対象にしたSFT / LoRA / QLoRA実験
 - ALFWorld系のfunction-calling trajectoryをtext ReAct形式へ寄せる前処理
 - 出力形式崩れ、行動選択ミス、途中停止などのエラー分析
-- 実験ログをもとにした改善サイクルの整理
+- 実験ログをもとにした改善サイクルをぐるぐる回す
 
 ## What I Built
 
@@ -38,13 +38,12 @@ recommended: false
 - ReAct形式の安定化を狙ったprompt / data formatting
 - 実験結果を比較するためのlog整理
 
-モデルそのものや再配布可否が不明なraw datasetは公開対象にせず、採用向けには手法、実験ログ、コード断片、runbookを切り出したsnapshot repoとして整理しました。
-
 ## Result
 
-2026年3月に、アドバンスドコンペ U29部門で優秀賞を受賞しました。
+結果として、2026年3月に、アドバンスドコンペ U29部門で優秀賞を受賞しました。
 
-この取り組みでは、LLMを「APIで使う」だけでなく、データ形式、fine-tuning手法、評価観点、エラー分析を含めて改善する経験を得ました。採用担当者向けには、AI / LLM領域での外部評価として、また技術面接向けには、手法選定と失敗分析を説明できる実績として位置づけています。
+LLMをAPI経由で叩くだけでなく、裏側の理屈を理解した上で動かせるようになったので、参加してかなり満足しています。Fine-tuningは今回取り組んだので実務などで活かしたいものの、如何せんコストバランスが悪く、AIAgentのハーネス設計やRAG&データエンジニアリングきちんとやる方が業務インパクトがデカそうなのが悲しいところ…。
+
 
 ## Tech Stack
 
