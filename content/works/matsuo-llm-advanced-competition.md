@@ -4,7 +4,8 @@ date: "2026-06-13"
 description: "東京大学松尾・岩澤研究室のLLM講座応用編アドバンスドコンペで、U29部門優秀賞を受賞したLLM fine-tuningの取り組み。"
 thumbnail: ""
 technologies: ["Python", "LLM", "SFT", "QLoRA", "ReAct", "Qwen"]
-links: {}
+links:
+  github: "https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition"
 featured: true
 recommended: false
 ---
@@ -37,7 +38,7 @@ recommended: false
 - ReAct形式の安定化を狙ったprompt / data formatting
 - 実験結果を比較するためのlog整理
 
-モデルそのものや再配布可否が不明なraw datasetは公開対象にせず、採用向けには手法、実験ログ、コード断片、runbookを切り出したsnapshot repoとして整理する方針です。
+モデルそのものや再配布可否が不明なraw datasetは公開対象にせず、採用向けには手法、実験ログ、コード断片、runbookを切り出したsnapshot repoとして整理しました。
 
 ## Result
 
@@ -56,11 +57,13 @@ recommended: false
 
 ## Evidence
 
-- ローカル証明書PDF: `松尾研優秀賞_U29.pdf` を根拠に作成
-- 公開用snapshot repo: T-056で公開準備中
-- 証明書PDFまたは公式掲載ページの公開リンクは、人間確認後に追加予定
+- U29部門優秀賞: ローカル証明書PDF `松尾研優秀賞_U29.pdf` を根拠に作成
+- 公開用snapshot repo: [Y-Mizutani2005/matsuo-llm-advanced-competition](https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition)
+- 講座の公式情報: [東京大学 松尾・岩澤研究室 大規模言語モデル講座](https://weblab.t.u-tokyo.ac.jp/lecture/course-list/large-language-model/)
+- 証明書PDFは個人情報確認が必要なため、2026-06-15時点ではpublic repoやportfolioには掲載していません。
+- 公式の受賞者掲載ページURLは、2026-06-15時点では公開検索で特定できていません。
 
 ## Links
 
-- GitHub repo: T-056完了後に接続予定
-- Portfolio導線: このページから、公開可能な実験ログとコードsnapshotへ接続する予定
+- GitHub repo: [Y-Mizutani2005/matsuo-llm-advanced-competition](https://github.com/Y-Mizutani2005/matsuo-llm-advanced-competition)
+- Official course page: [大規模言語モデル講座](https://weblab.t.u-tokyo.ac.jp/lecture/course-list/large-language-model/)
